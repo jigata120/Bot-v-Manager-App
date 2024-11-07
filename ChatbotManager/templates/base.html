@@ -1,0 +1,76 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+     <link  rel="stylesheet" href="{% static 'css/base.css' %}">
+
+    <style>
+
+
+    </style>
+    {% block style %}
+    {% endblock %}
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">BOT-F</div>
+            <div class="nav-links">
+                <a href="{% url 'dashboard' %}"
+                   style="{% if request.resolver_match.url_name == 'dashboard' %}color: var(--neon-purple);{% endif %}">
+                    Dashboard
+                </a>
+                <a href="{% url 'pricing' %}"
+                   style="{% if request.resolver_match.url_name == 'pricing' %}color: var(--electric-blue);{% endif %}">
+                    Pricing
+                </a>
+                <a href="{% url 'subscriptions-and-billing' %}"
+                   style="{% if request.resolver_match.url_name == 'subscriptions-and-billing' %}color: var(--electric-blue);{% endif %}">
+                    Billing
+                </a>
+                 <a href="{% url 'playground_page' %}"
+                   style="{% if request.resolver_match.url_name == 'playground_page' %}color: var(--electric-blue);{% endif %}">
+                    Playground
+                </a>
+                <a href="{% url 'documentation_page' %}"
+                   style="{% if request.resolver_match.url_name == 'documentation_page' %}color: var(--electric-blue);{% endif %}">
+                    Documentation
+                </a>
+                <a href="{% url 'profile' %}"
+                   style="{% if request.resolver_match.url_name == 'profile' %}color: var(--electric-blue);{% endif %}">
+                    Profile
+                </a>
+            </div>
+
+            <button class="cta-button">Get Started</button>
+        </nav>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+    <footer>
+        <div class="footer-content">
+            <div class="logo">BOT-F</div>
+            <div class="footer-links">
+                <a href="#">Terms of Service</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Support</a>
+            </div>
+        </div>
+    </footer>
+
+    {% block script %}
+    {% endblock %}
+
+</body>
+</html>
